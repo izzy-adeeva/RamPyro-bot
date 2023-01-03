@@ -23,7 +23,7 @@ async def main():
             await bot.join_chat("k0kb4c0de")
             await bot.join_chat("userbotch")
             await bot.join_chat("GeezSupport")
-            await bot.join_chat("SharingUserbot")
+            await bot.join_chat("mutualan_temanrandom")
             try:
                 await bot.send_message(
                     BOTLOG_CHATID, MSG_ON.format(BOT_VER, CMD_HANDLER)

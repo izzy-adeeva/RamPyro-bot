@@ -21,9 +21,6 @@ from rams import LOGGER
 
 HAPP = None
 
-GIT_TOKEN = "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"
-REPO_URL = "https://github.com/Ramkay132/pyroram"
-
 XCB = [
     "/",
     "@",

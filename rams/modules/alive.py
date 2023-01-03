@@ -33,7 +33,7 @@ from .help import add_command_help
 
 modules = CMD_HELP
 alive_logo = (
-    gvarstatus("ALIVE_LOGO") or "https://telegra.ph/file/0e030c6e875cfad95cc01.jpg"
+    gvarstatus("ALIVE_LOGO") or "https://telegra.ph/file/eda4816a97d4e74445fc0.jpg"
 )
 emoji = gvarstatus("ALIVE_EMOJI") or "🤖"
 alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "Hey bro, I am rams."

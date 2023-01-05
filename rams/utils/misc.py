@@ -18,7 +18,7 @@ admins_in_chat = {}
 
 
 def restart():
-    os.execvp(sys.executable, [sys.executable, "-m", "PyroKar"])
+    os.execvp(sys.executable, [sys.executable, "-m", "rams"])
 
 
 async def list_admins(client: Client, chat_id: int):

@@ -100,7 +100,7 @@ async def upstream(client: Client, message: Message):
         repo.__del__()
         return
     except InvalidGitRepositoryError:
-        if conf != "deploy":
+        if conf != "dulu":
             pass
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
@@ -270,7 +270,7 @@ async def updaterman(client: Client, message: Message):
 add_command_help(
     "update",
     [
-        ["update", "Untuk melihat list pembaruan terbaru dari RamPyro-Bot."],
-        ["update deploy", "Untuk mengupdate userbot."],
+        ["apdet", "Untuk melihat list pembaruan terbaru dari RamPyro-Bot."],
+        ["apdet dulu", "Untuk mengupdate userbot."],
     ],
 )

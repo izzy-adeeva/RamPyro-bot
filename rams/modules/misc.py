@@ -203,33 +203,6 @@ async def sosmed(client: Client, message: Message):
         )
         await client.delete_messages(bot, 2)
 
-@Client.on_message(filters.command(["jurus"], cmd) & filters.me)
-async def kamuii(client: Client, message: Message):
-    Man = await message.edit("`Processing . . .`")
-    link = get_arg(message)
-    bot = "image_deepfrybot"
-    if link:
-        try:
-            xnxx = await client.send_message(bot, link)
-            await asyncio.sleep(5)
-            await xnxx.delete()
-        except YouBlockedUser:
-            await client.unblock_user(bot)
-            xnxx = await client.send_message(bot, link)
-            await asyncio.sleep(5)
-            await xnxx.delete()
-    async for kamuii in client.search_messages(
-        bot, filter=enums.MessagesFilter.PHOTO, limit=1
-    ):
-        await asyncio.gather(
-            Man.delete(),
-            client.send_photo(
-                message.chat.id,
-                kamuii.photo.file_id,
-                reply_to_message_id=ReplyCheck(message),
-            ),
-        )
-        await client.delete_messages(bot, 2)
 
 
 

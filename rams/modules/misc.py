@@ -237,7 +237,7 @@ add_command_help(
         [
             f"sosmed <link>",
             "Untuk Mendownload Media Dari Instagram & Pinteres",
-            f"sosmed2 <link>
+            f"sosmed2 <link>",
             "Untuk Mendownload Media Dari Tiktok / facebook / twitter",
         ],
     ],

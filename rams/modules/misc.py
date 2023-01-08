@@ -147,7 +147,7 @@ async def open_file(client: Client, m: Message):
 
 
 @Client.on_message(filters.command(["ig", "pint"], cmd) & filters.me)
-async def sosmed(client: Client, message: Message):
+async def instag(client: Client, message: Message):
     Man = await message.edit("`Processing . . .`")
     link = get_arg(message)
     bot = "saveasbot"
@@ -161,14 +161,14 @@ async def sosmed(client: Client, message: Message):
             xnxx = await client.send_message(bot, link)
             await asyncio.sleep(5)
             await xnxx.delete()
-    async for sosmed in client.search_messages(
+    async for instag in client.search_messages(
         bot, filter=enums.MessagesFilter.VIDEO, limit=1
     ):
         await asyncio.gather(
             Man.delete(),
             client.send_video(
                 message.chat.id,
-                sosmed,
+                instag,
                 reply_to_message_id=ReplyCheck(message),
             ),
         )

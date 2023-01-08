@@ -9,7 +9,7 @@ from pyrogram import Client, enums, filters
 from rams.helpers.basic import *
 from rams.helpers.PyroHelpers import *
 from rams import *
-
+from .help import add_command_help
 
 @ram.on_message(filters.command(["asupan", "ptl"], cmd) & filters.me)
 async def asupan(client: Client, message: Message):

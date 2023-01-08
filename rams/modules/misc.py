@@ -168,7 +168,7 @@ async def instag(client: Client, message: Message):
             Man.delete(),
             client.send_video(
                 message.chat.id,
-                instag,
+                instag.video.file_id,
                 reply_to_message_id=ReplyCheck(message),
             ),
         )
@@ -197,7 +197,7 @@ async def sosmed(client: Client, message: Message):
             Man.delete(),
             client.send_video(
                 message.chat.id,
-                sosmed,
+                sosmed.video.file_id,
                 reply_to_message_id=ReplyCheck(message),
             ),
         )

@@ -124,7 +124,7 @@ async def vardel_(client: Client, message: Message):
         restart()
 
 
-@Client.on_message(filters.command(["usage", "dyno"] CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command(["usage", "dyno"], CMD_HANDLER) & filters.me)
 async def usage_heroku(client: Client, message: Message):
     ### Credits CatUserbot
     if await in_heroku():

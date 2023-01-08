@@ -22,7 +22,7 @@ import urllib3
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from config import *
+from config import CMD_HANDLER as cmd
 from rams.helpers.basic import edit_or_reply
 from rams.helpers.misc import HAPP, in_heroku
 from rams.utils.misc import restart
@@ -32,11 +32,11 @@ from .help import add_command_help
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-@Client.on_message(filters.command("setvar", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("setvar", cmd) & filters.me)
 async def set_var(client: Client, message: Message):
     if len(message.command) < 3:
         return await edit_or_reply(
-            message, f"<b>Usage:</b> {CMD_HANDLER}setvar [Var Name] [Var Value]"
+            message, f"<b>Usage:</b> {cmd}setvar [Var Name] [Var Value]"
         )
     Man = await edit_or_reply(message, "`Processing...`")
     to_set = message.text.split(None, 2)[1].strip()
@@ -64,11 +64,11 @@ async def set_var(client: Client, message: Message):
         restart()
 
 
-@Client.on_message(filters.command("getvar", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("getvar", cmd) & filters.me)
 async def varget_(client: Client, message: Message):
     if len(message.command) != 2:
         return await edit_or_reply(
-            message, f"<b>Usage:</b> {CMD_HANDLER}getvar [Var Name]"
+            message, f"<b>Usage:</b> {cmd}getvar [Var Name]"
         )
     Man = await edit_or_reply(message, "`Processing...`")
     check_var = message.text.split(None, 2)[1]
@@ -95,10 +95,10 @@ async def varget_(client: Client, message: Message):
             return await Man.edit(f"<b>{check_var}:</b> <code>{str(output)}</code>")
 
 
-@Client.on_message(filters.command("delvar", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("delvar", cmd) & filters.me)
 async def vardel_(client: Client, message: Message):
     if len(message.command) != 2:
-        return await message.edit(f"<b>Usage:</b> {CMD_HANDLER}delvar [Var Name]")
+        return await message.edit(f"<b>Usage:</b> {cmd}delvar [Var Name]")
     Man = await edit_or_reply(message, "`Processing...`")
     check_var = message.text.split(None, 2)[1]
     if await in_heroku():
@@ -124,7 +124,7 @@ async def vardel_(client: Client, message: Message):
         restart()
 
 
-@Client.on_message(filters.command("usage", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("usage", cmd) & filters.me)
 async def usage_heroku(client: Client, message: Message):
     ### Credits CatUserbot
     if await in_heroku():
@@ -190,18 +190,18 @@ async def usage_heroku(client: Client, message: Message):
     return await dyno.edit(text)
 
 
-@Client.on_message(filters.command("usange", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("uasu", cmd) & filters.me)
 async def usange_heroku(client: Client, message: Message):
     xx = await edit_or_reply(message, "`Processing...`")
     await xx.edit(
         "✥ **Informasi Dyno Heroku :**"
         "\n╔════════════════════╗\n"
         f" ➠ **Penggunaan Dyno** `{HEROKU_APP_NAME}` :\n"
-        f"     •  `0`**Jam**  `0`**Menit**  "
+        f"     •  `9999`**Jam**  `9999`**Menit**  "
         f"**|**  [`0`**%**]"
         "\n◖════════════════════◗\n"
         " ➠ **Sisa kuota dyno bulan ini** :\n"
-        f"     •  `1000`**Jam**  `0`**Menit**  "
+        f"     •  `UNLIMITED`**Jam**  `1000`**Menit**  "
         f"**|**  [`100`**%**]"
         "\n╚════════════════════╝\n"
     )
@@ -218,7 +218,7 @@ add_command_help(
             "Untuk mengecheck kouta dyno heroku.",
         ],
         [
-            "usange",
+            "uasu",
             "Fake Usage Kouta Dyno Heroku jadi 1000jam Untuk menipu temanmu wkwk.",
         ],
     ],

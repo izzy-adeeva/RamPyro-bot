@@ -127,9 +127,9 @@ add_command_help(
             "asupan",
             "Asupan video TikTok",
         ],
-        [f"ayang" & {cmd}ayg, "Mencari Foto ayang kamu /nNote: Modul ini buat cwo yang jomblo."],
-        [f"ppcp" & {cmd}, "Mencari Foto PP Couple Random."],
-        [f"bokep" & {cmd}, "to send random porno videos."],
-        [f"ppanime" & {cmd}, "Mencari Foto PP Couple Anime."],
+        [f"ayang & {cmd}ayg", "Mencari Foto ayang kamu /nNote: Modul ini buat cwo yang jomblo."],
+        [f"ppcp & {cmd}cpp", "Mencari Foto PP Couple Random."],
+        [f"bokep & {cmd}bkp", "to send random porno videos."],
+        [f"ppanime & {cmd}anim", "Mencari Foto PP Couple Anime."],
     ],
 )

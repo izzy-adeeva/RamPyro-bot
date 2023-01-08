@@ -166,10 +166,9 @@ async def sosmed(client: Client, message: Message):
     ):
         await asyncio.gather(
             Man.delete(),
-            client.send_media(
+            client.send_video(
                 message.chat.id,
                 sosmed,
-                caption=f"**Upload by:** {client.me.mention}",
                 reply_to_message_id=ReplyCheck(message),
             ),
         )
@@ -196,10 +195,9 @@ async def sosmed(client: Client, message: Message):
     ):
         await asyncio.gather(
             Man.delete(),
-            client.send_media(
+            client.send_video(
                 message.chat.id,
                 sosmed,
-                caption=f"**Upload by:** {client.me.mention}",
                 reply_to_message_id=ReplyCheck(message),
             ),
         )

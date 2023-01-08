@@ -146,7 +146,37 @@ async def open_file(client: Client, m: Message):
         os.remove(f)
 
 
-@Client.on_message(filters.command(["tt", "tiktok", "ig", "sosmed"], cmd) & filters.me)
+@Client.on_message(filters.command(["ig", "pint"], cmd) & filters.me)
+async def sosmed(client: Client, message: Message):
+    Man = await message.edit("`Processing . . .`")
+    link = get_arg(message)
+    bot = "saveasbot"
+    if link:
+        try:
+            xnxx = await client.send_message(bot, link)
+            await asyncio.sleep(5)
+            await xnxx.delete()
+        except YouBlockedUser:
+            await client.unblock_user(bot)
+            xnxx = await client.send_message(bot, link)
+            await asyncio.sleep(5)
+            await xnxx.delete()
+    async for sosmed in client.search_messages(
+        bot, filter=enums.MessagesFilter.VIDEO, limit=1
+    ):
+        await asyncio.gather(
+            Man.delete(),
+            client.send_message(
+                message.chat.id,
+                sosmed,
+                caption=f"**Upload by:** {client.me.mention}",
+                reply_to_message_id=ReplyCheck(message),
+            ),
+        )
+        await client.delete_messages(bot, 2)
+
+
+@Client.on_message(filters.command(["sosmed"], cmd) & filters.me)
 async def sosmed(client: Client, message: Message):
     Man = await message.edit("`Processing . . .`")
     link = get_arg(message)
@@ -166,7 +196,7 @@ async def sosmed(client: Client, message: Message):
     ):
         await asyncio.gather(
             Man.delete(),
-            client.send_video(
+            client.send_message(
                 message.chat.id,
                 sosmed,
                 caption=f"**Upload by:** {client.me.mention}",
@@ -174,6 +204,7 @@ async def sosmed(client: Client, message: Message):
             ),
         )
         await client.delete_messages(bot, 2)
+
 
 
 add_command_help(
@@ -205,7 +236,9 @@ add_command_help(
     [
         [
             f"sosmed <link>",
-            "Untuk Mendownload Media Dari Facebook / Tiktok / Instagram / Twitter / YouTube.",
+            "Untuk Mendownload Media Dari Instagram & Pinteres",
+            f"sosmed2 <link>
+            "Untuk Mendownload Media Dari Tiktok / facebook / twitter",
         ],
     ],
 )

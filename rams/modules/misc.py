@@ -166,7 +166,7 @@ async def sosmed(client: Client, message: Message):
     ):
         await asyncio.gather(
             Man.delete(),
-            client.send_message(
+            client.send_media(
                 message.chat.id,
                 sosmed,
                 caption=f"**Upload by:** {client.me.mention}",
@@ -196,7 +196,7 @@ async def sosmed(client: Client, message: Message):
     ):
         await asyncio.gather(
             Man.delete(),
-            client.send_message(
+            client.send_media(
                 message.chat.id,
                 sosmed,
                 caption=f"**Upload by:** {client.me.mention}",

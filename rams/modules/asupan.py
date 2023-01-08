@@ -7,7 +7,7 @@ from pyrogram.types import *
 from pyrogram import Client as ram
 from pyrogram import Client, enums, filters
 from rams.helpers.basic import *
-from rams.helper.PyroHelpers import *
+from rams.helpers.PyroHelpers import *
 from rams import *
 
 

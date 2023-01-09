@@ -1,11 +1,11 @@
-
+import importlib 
 from pyrogram import idle
 from uvloop import install
 
 from config import BOT_VER, CMD_HANDLER
 from rams import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bot1, bots
 from rams.helpers.misc import create_botlog, git, heroku
-
+from rams.modules import ALL_MODULES
 MSG_ON = """
 🔥 **RamPyro-Bot Menyala** 🔥
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
@@ -16,15 +16,14 @@ MSG_ON = """
 
 
 async def main():
+    for all_module in ALL_MODULES:
+        importlib.import_module(f"rams.modules.{all_module}")
     for bot in bots:
         try:
             await bot.start()
             bot.me = await bot.get_me()
             await bot.join_chat("ramsupportt")
-            await bot.join_chat("k0kb4c0de")
             await bot.join_chat("userbotch")
-            await bot.join_chat("GeezSupport")
-            await bot.join_chat("mutualan_temanrandom")
             try:
                 await bot.send_message(
                     BOTLOG_CHATID, MSG_ON.format(BOT_VER, CMD_HANDLER)

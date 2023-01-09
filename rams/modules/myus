@@ -5,7 +5,13 @@ import time
 from math import ceil
 import logging
 import ffmpeg
-from geez import app
+from rams import [
+     bot1, bot2,
+     bot3, bot4,
+     bot5, bot6,
+     bot7, bot8,
+     bot9, bot10,]
+
 from pyrogram import Client, filters
 from pyrogram import Client as gez
 from pyrogram.types import Message

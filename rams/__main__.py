@@ -16,7 +16,7 @@ MSG_ON = """
 """
 
 async def main():
-    await bot.start()
+    await bots.start()
     print("LOG: Sedang Menginstall Module..")
     for all_module in ALL_MODULES:
         importlib.import_module("rams.modules" + all_module)

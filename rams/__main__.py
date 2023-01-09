@@ -1,6 +1,6 @@
 from pyrogram import idle
 from uvloop import install
-
+from importlib import import_module
 from config import BOT_VER, CMD_HANDLER
 from rams import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bot1, bots
 from rams.helpers.misc import create_botlog, git, heroku
@@ -15,13 +15,12 @@ MSG_ON = """
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 """
 
-async sef start_on():
-    for all_module in ALL_MODULES:
-importlib.import_module("rams.modules" + all_module)
-            except BaseException:
-                pass
-
 async def main():
+    await bot.start()
+    print("LOG: Sedang Menginstall Module..")
+    for all_module in ALL_MODULES:
+        importlib.import_module("rams.modules" + all_module)
+        print(f"Successfully Imported {all_module} ✔")
     for bot in bots:
         try:
             await bot.start()
@@ -54,4 +53,3 @@ if __name__ == "__main__":
     install()
     heroku()
     LOOP.run_until_complete(main())
-    LOOP.run_until_complete(start_on())

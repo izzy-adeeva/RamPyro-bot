@@ -3,6 +3,7 @@ Pillow
 aiohttp
 asyncio
 bs4
+ffmpeg
 gitpython
 googlesearch-python== 1.0.1
 gpytranslate

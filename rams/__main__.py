@@ -4,7 +4,7 @@ from uvloop import install
 from config import BOT_VER, CMD_HANDLER
 from rams import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bot1, bots
 from rams.helpers.misc import create_botlog, git, heroku
-
+from rams.modules import ALL_MODULES
 MSG_ON = """
 🔥 **RamPyro-Bot Menyala** 🔥
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
@@ -13,6 +13,11 @@ MSG_ON = """
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 """
 
+async sef start_on():
+    for all_module in ALL_MODULES:
+importlib.import_module("rams.modules" + all_module)
+            except BaseException:
+                pass
 
 async def main():
     for bot in bots:
@@ -47,3 +52,4 @@ if __name__ == "__main__":
     install()
     heroku()
     LOOP.run_until_complete(main())
+    LOOP.run_until_complete(start_on())

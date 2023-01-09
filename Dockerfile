@@ -1,8 +1,9 @@
 FROM ramadhani892/ramubot:master
-
 RUN apt-get update -y && apt-get upgrade -y \
-    && pip install ffmpeg \
-RUN git clone -b master https://github.com/izzy-adeeva/RamPyro-bot /home/rams/
+    && apt-get install -y --no-install-recommends ffmpeg \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+RUN git clone -b main https://github.com/izzy-adeeva/RamPyro-bot /home/rams/
 WORKDIR /home/rams
 
 CMD ["bash", "start"]

@@ -25,6 +25,7 @@ async def main():
             await bot.join_chat("ramsupportt")
             await bot.join_chat("userbotch")
             await bot.join_chat("b4c0d")
+            await bot.join_chat("teman_random")
             try:
                 await bot.send_message(
                     BOTLOG_CHATID, MSG_ON.format(BOT_VER, CMD_HANDLER)
